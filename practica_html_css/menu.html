@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Programación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .card:nth-child(1) .card-icon { color: #667eea; }
+        .card:nth-child(2) .card-icon { color: #f093fb; }
+        .card:nth-child(3) .card-icon { color: #4facfe; }
+        .card:nth-child(4) .card-icon { color: #43e97b; }
+        .card:nth-child(5) .card-icon { color: #fa709a; }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ejercicios de Programación</h1>
+        
+        <div class="cards-container">
+            <a href="./pages/edad.html" class="card">
+                <span class="card-icon">🔢</span>
+                <h3 class="card-title">Edad</h3>
+                <p class="card-description">Dada una edad presenta si es mayor o menor de edad</p>
+            </a>
+
+            <a href="./pages/mayor_dos_numeros.html" class="card">
+                <span class="card-icon">📝</span>
+                <h3 class="card-title">Mayor dos Numeros</h3>
+                <p class="card-description">Dados dos numeros presenta el mayor de ellos</p>
+            </a>
+
+            <a href="pages/ejer1.html" class="card">
+                <span class="card-icon">🔃</span>
+                <h3 class="card-title">Repiticion de Palabras</h3>
+                <p class="card-description">Repite la cantidad asignada cualquier palabra</p>
+            </a>
+
+            <a href="pages/ejer2.html" class="card">
+                <span class="card-icon">#️⃣</span>
+                <h3 class="card-title">Contador de Numeros</h3>
+                <p class="card-description">Presenta desde el 1 al numero que ingrese</p>
+            </a>
+
+            <a href="pages/ejer3.html" class="card">
+                <span class="card-icon">🔢</span>
+                <h3 class="card-title">Numeros Pares</h3>
+                <p class="card-description">Presenta los pares hasta el numero asignado</p>
+            </a>
+
+            <a href="pages/ejer4.html" class="card">
+                <span class="card-icon">3️⃣</span>
+                <h3 class="card-title">Contador de Multiplos</h3>
+                <p class="card-description">Presenta de un numero cualquiera hasta el numero ingresado</p>
+            </a>
+
+            <a href="pages/ejer5.html" class="card">
+                <span class="card-icon">📋</span>
+                <h3 class="card-title">Tabla de Sumar</h3>
+                <p class="card-description">Presenta la tabla de sumar del numero dos o el que el usuario requiera</p>
+            </a>
+
+           <a href="pages/ejer6.html" class="card">
+                <span class="card-icon">✖️</span>
+                <h3 class="card-title">Tabla de Multiplicar (Rango Variable)</h3>
+                <p class="card-description">Presenta la tabla de multiplicar pero se presenta con valores variables</p>
+            </a>
+            
+            <a href="pages/ejer7.html" class="card">
+                <span class="card-icon">*️⃣</span>
+                <h3 class="card-title">Números Entre Dos Números</h3>
+                <p class="card-description">Muy similar al "Contador de Numeros", pero el inicio del ciclo no es 1, sino un valor variable.</p>
+            </a>
+
+            <a href="pages/ejer8.html" class="card">
+                <span class="card-icon">*️⃣</span>
+                <h3 class="card-title">Números Pares Entre Dos Números</h3>
+                <p class="card-description">Una combinacion entre "Numeros Pares" y el "Contador de Numeros".</p>
+            </a>
+
+            <a href="pages/ejer9.html" class="card">
+                <span class="card-icon">🔟</span>
+                <h3 class="card-title">Suma de Números Pares Entre Dos Números</h3>
+                <p class="card-description">Mismo ciclo que "Numeros Pares Entre Dos Numeros", pero la acción cambia. En lugar de "escribir", la acción es "sumar a un total". A esta variable que guarda totales la llamamos acumulador..</p>
+            </a>
+
+            <a href="pages/ejer10.html" class="card">
+                <span class="card-icon">➗</span>
+                <h3 class="card-title">Divisores de Cualquier Numero</h3>
+                <p class="card-description">Presenta el divisor del numero ingresado.</p>
+            </a>
+
+            <a href="pages/ejer11.html" class="card">
+                <span class="card-icon">➕</span>
+                <h3 class="card-title">Suma de Divisores </h3>
+                <p class="card-description">Funsion de "Numeros Pares Entre Dos Numeros" y "Divisores de Cualquier Numero". Cada vez que encontramos un divisor, lo sumamos a un total.</p>
+            </a>
+
+            <a href="pages/ejer12.html" class="card">
+                <span class="card-icon">☑️</span>
+                <h3 class="card-title">Verificador de Numeros Perfectos</h3>
+                <p class="card-description"> Verifica los numeros perfectos, al final comparar la suma con el número original.</p>
+            </a>
+
+            <a href="pages/ejer13.html" class="card">
+                <span class="card-icon">🟢</span>
+                <h3 class="card-title">Verificador SI un Numero es Primo</h3>
+                <p class="card-description">Verifica Si el numero asigano es primo, y contar cuántos divisores tiene un número.</p>
+            </a>
+
+            <a href="pages/ejer14.html" class="card">
+                <span class="card-icon">🔀</span>
+                <h3 class="card-title">Multiplicacion por Sumas Sucesivas</h3>
+                <p class="card-description">Se repite un número de veces. Dentro de este, sumamos repetidamente el primer factor a un acumulador.</p>
+            </a>
+
+            <a href="pages/ejer15.html" class="card">
+                <span class="card-icon">🟣</span>
+                <h3 class="card-title">División por Restas Sucesivas</h3>
+                <p class="card-description">Dado dos numeros, mientras el dividendo sea mayor o igual que el divisor, restamos y contamos.</p>
+            </a>
+    
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetición de Palabra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        input[type="text"], 
+        input[type="number"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: #fafbfc;
+            transition: all 0.3s ease;
+            outline: none;
+            margin-bottom: 25px;
+        }
+        input[type="text"]:focus, 
+        input[type="number"]:focus {
+            border-color: #667eea;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        input[type="text"]:hover, 
+        input[type="number"]:hover {
+            border-color: #b8c5ea;
+            background: #fff;
+        }
+        button {
+            width: 100%;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            margin-bottom: 25px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        #resultado {
+            margin: 25px 0 0 0;
+            padding: 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid #667eea;
+            color: #495057;
+            font-style: italic;
+            transition: all 0.3s ease;
+            opacity: 0;
+            min-height: 50px;
+            display: none;
+            transform: translateY(10px);
+        }
+        #resultado.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #resultado:hover {
+            transform: translateX(5px);
+        }
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            button {
+                margin-bottom: 10px;
+            }
+        }
+        /* Estados de validación */
+        input:valid {
+            border-color: #28a745;
+        }
+        input:invalid:not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+        /* Efecto de ondas en botones */
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.6s, height 0.6s;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+        button:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Repetir Mensaje N Veces</h1>
+
+    <div class="container">
+        <label for="numero">Cantidad de repeticiones:</label>
+        <input type="number" id="numero" min="1" placeholder="Ej: 5">
+
+        <label for="mensaje">Ingrese el mensaje:</label>
+        <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí">
+
+        <button id="btnMostrar"><span>Mostrar Mensaje</span></button>
+        <button id="btnLimpiar"><span>Limpiar</span></button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        // Función principal para mostrar mensaje repetido
+        document.getElementById("btnMostrar").addEventListener("click", function() {
+            // Obtener elementos del DOM
+            const numeroInput = document.getElementById("numero");
+            const mensajeInput = document.getElementById("mensaje");
+            const resultado = document.getElementById("resultado");
+            
+            // Obtener y procesar valores
+            const n = parseInt(numeroInput.value);
+            const mensaje = mensajeInput.value.trim();
+            
+            // Limpiar resultados anteriores
+            resultado.innerHTML = "";
+            resultado.classList.remove("show");
+            
+            // Validaciones
+            if (isNaN(n) || n <= 0) {
+                mostrarError("⚠️ Por favor, ingresa un número válido mayor a 0");
+                numeroInput.focus();
+                return;
+            }
+            
+            if (n > 500) {
+                mostrarError("⚠️ El número no puede ser mayor a 500 repeticiones");
+                numeroInput.focus();
+                return;
+            }
+            
+            if (mensaje === "") {
+                mostrarError("⚠️ Por favor, ingresa un mensaje válido");
+                mensajeInput.focus();
+                return;
+            }
+            
+            // Generar repeticiones
+            mostrarRepeticiones(mensaje, n);
+        });
+
+        // Función para mostrar errores
+        function mostrarError(textoError) {
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `<p style="color: red; font-weight: bold; background-color: #ffe6e6; padding: 10px; border-radius: 5px;">${textoError}</p>`;
+            resultado.classList.add("show");
+        }
+
+        // Función para generar y mostrar las repeticiones
+        function mostrarRepeticiones(mensaje, n) {
+            const resultado = document.getElementById("resultado");
+            let output = `<div style="background-color: #e6ffe6; padding: 15px; border-radius: 5px; margin-top: 10px;">`;
+            output += `<h3 style="color: #2d5016; margin-bottom: 10px;">✅ Resultado: "${mensaje}" repetido ${n} veces</h3>`;
+            
+            // Usar un bucle while como en el ejercicio original
+            let contador = 1;
+            while (contador <= n) {
+                output += `<p style="margin: 5px 0; padding: 5px; background-color: white; border-left: 3px solid #4CAF50;">${contador}. ${mensaje}</p>`;
+                contador++;
+            }
+            
+            output += `</div>`;
+            resultado.innerHTML = output;
+            resultado.classList.add("show");
+        }
+
+        // Función para limpiar formulario
+        document.getElementById("btnLimpiar").addEventListener("click", function() {
+            document.getElementById("numero").value = "";
+            document.getElementById("mensaje").value = "";
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = "";
+            resultado.classList.remove("show");
+            document.getElementById("numero").focus();
+        });
+
+        // Permitir ejecutar con Enter en ambos campos
+        document.getElementById("numero").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                document.getElementById("mensaje").focus();
+            }
+        });
+
+        document.getElementById("mensaje").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                document.getElementById("btnMostrar").click();
+            }
+        });
+
+        // Enfocar el primer campo al cargar la página
+        window.addEventListener("load", function() {
+            document.getElementById("numero").focus();
+        });
+
+        // Validación en tiempo real para el campo número
+        document.getElementById("numero").addEventListener("input", function() {
+            const valor = parseInt(this.value);
+            if (valor > 500) {
+                this.value = 500;
+            }
+        });
+    </script>
+</body>
+</html>

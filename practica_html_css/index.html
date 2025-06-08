@@ -1,0 +1,131 @@
+<!-- Declaración del tipo de documento HTML5 -->
+ <!DOCTYPE html>
+ <!-- Elemento raíz con atributo de idioma español -->
+ <html lang="es">
+ <!-- Sección de cabecera con metadatos y recursos -->
+ <head>
+    <!-- Define la codificación de caracteres UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configura la vista para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página que aparece en la pestaña del navegador -->
+    <title>Mi Sitio Web</title>
+    <!-- Estilos CSS internos (normalmente se pondrían en un archivo externo) -->
+    <style>
+       
+    </style>
+ </head>
+ <!-- Cuerpo de la página - contiene todo el contenido visible -->
+ <body>
+    <!-- Encabezado de la página -->
+    <header>
+        <!-- Título principal de nivel 1 -->
+        <h1>Mi Sitio Web</h1>
+        <!-- Párrafo de bienvenida -->
+        <p>Bienvenido a mi primer sitio web con HTML</p>
+    </header>
+    <!-- Barra de navegación principal -->
+ 
+    <nav >
+        <!-- Enlaces de navegación (# es un placeholder) -->
+        <a href="#">Inicio</a>
+        <a href="#">Acerca de</a>
+        <a href="#">Servicios</a>
+        <a href="#">Contacto</a>
+    </nav>
+       <!-- Contenedor principal que centra el contenido -->
+    <main class="container" id="container">
+         <!-- Sección "Acerca de Nosotros" -->
+        <section>
+            <!-- Título de sección nivel 2 -->
+            <h2>Acerca de Nosotros</h2>
+            <!-- Párrafos de texto informativo -->
+            <p>Somos una empresa dedicada al desarrollo web y tecnologías de la información.</p>
+            <p>Nuestro objetivo es proporcionar soluciones digitales de alta calidad.</p>
+        </section>
+        <!-- Sección "Nuestros Servicios" -->
+        <section>
+            <!-- Título de sección nivel 2 -->
+            <h2>Nuestros Servicios</h2>
+            <!-- Lista desordenada (con viñetas) -->
+            <ul>
+                <!-- Elementos de la lista -->
+                <li>Diseño Web</li>
+                <li>Desarrollo Frontend</li>
+                <li>Desarrollo Backend</li>
+                <li>SEO y Marketing Digital</li>
+            </ul>
+        </section>
+           <!-- Sección "Contacto" con formulario -->
+        <section>
+            <!-- Título de sección nivel 2 -->
+            <h2>Contacto</h2>
+            <!-- Formulario - action especifica dónde se envían los datos, method especifica có -->
+            <form action="/enviar-formulario" method="post">
+                <!-- Grupo de campos relacionados -->
+                <fieldset>
+                    <!-- Leyenda del grupo de campos -->
+                    <legend>Información Personal</legend>
+                    
+                    <!-- Etiqueta asociada a un campo por su ID -->
+                    <label for="nombre">Nombre:</label>
+                    <!-- Campo de texto con ID, nombre y atributo de requerido -->
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <!-- Etiqueta para el campo de email -->
+                    <label for="email">Email:</label>
+                    <!-- Campo de email con validación automática -->
+                    <input type="email" id="email" name="email" required>
+                    
+                    <!-- Etiqueta para el campo de teléfono -->
+                    <label for="telefono">Teléfono:</label>
+                    <!-- Campo específico para teléfonos -->
+                    <input type="tel" id="telefono" name="telefono">
+                </fieldset>
+                
+                <!-- Segundo grupo de campos -->
+                <fieldset>
+                    <!-- Leyenda del grupo -->
+                    <legend>Detalles del Mensaje</legend>
+                    
+                    <!-- Etiqueta para la lista desplegable -->
+                    <label for="asunto">Asunto:</label>
+                    <!-- Lista desplegable (select) -->
+                    <select id="asunto" name="asunto">
+                        <!-- Opciones de la lista desplegable con valores -->
+                        <option value="consulta">Consulta General</option>
+                        <option value="presupuesto">Solicitud de Presupuesto</option>
+                        <option value="soporte">Soporte Técnico</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    
+                    <!-- Etiqueta para el campo de texto multilínea -->
+                    <label for="mensaje">Mensaje:</label>
+                    <!-- Área de texto multilínea con 5 filas visibles -->
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    
+                    <!-- Etiqueta que contiene una casilla de verificación -->
+                    <label>
+                        <!-- Casilla de verificación para aceptar términos -->
+                        <input type="checkbox" name="terminos" required>
+                        Acepto los términos y condiciones
+                    </label>
+                </fieldset>
+                
+
+                <!-- Botón para enviar el formulario -->
+                <button type="submit">Enviar Mensaje</button>
+                <!-- Botón para resetear/limpiar el formulario -->
+                <button type="reset">Limpiar Formulario</button>
+            </form>
+        </section>
+    </main>
+     <!-- Pie de página del sitio web -->
+    <footer>
+        <!-- Párrafo con símbolo de copyright -->
+        <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+
+   
+ </body>
+ </html>

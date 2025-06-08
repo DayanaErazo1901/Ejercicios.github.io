@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Edad</title>
+    <link rel="stylesheet" href="../css/estilo_form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Validación de Edad</h1>
+        <form action="../menu.html">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" value="1"  required>
+            </div>
+            <div class="form-group">
+                <label for="sueldo">Sueldo:</label>
+                <input type="number" id="sueldo" name="edad"  placeholder="Ingresa tu edad" required>
+            </div>
+            
+            <div class="resultado" id="resultado">
+                <strong>Resultado:</strong> Complete el formulario para validar la edad
+            </div>
+            
+            <div class="button-group">
+                <button type="button" class="btn-primary" onclick="validarEdad()">
+                    <span>Validar Edad</span>
+                </button>
+                <button type="reset" class="btn-secondary">
+                    <span>Limpiar</span>
+                </button>
+                 <button type="submit" class="btn-secondary">
+                    <span>Regresar</span>
+                </button>
+            </div>
+            </div>
+        </form>
+    </div>
+    <script src="../js/mayor_edad.js"></script>
+         
+    </script>
+</body>
+</html>
